@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Interfaces\ExampleInterface;
+use App\Models\Example;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Bind the ExampleInterface to the concrete Example model
+        $this->app->bind(ExampleInterface::class, Example::class);
     }
 
     /**
